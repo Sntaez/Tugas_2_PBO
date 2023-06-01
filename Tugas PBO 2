@@ -1,0 +1,154 @@
+"""
+Nama    : Sinta Ezra Wati Gulo
+NPM     : G1A022040
+Kelas   : Informatika - B
+Tugas   : Pemograman Berorientasi Objek (PBO)
+"""
+
+########################################################## Kelas Mahasiswa ##########################################################
+class Mahasiswa:
+    def __init__(self, nama, nim, jurusan):
+        self.nama = nama
+        self.nim = nim
+        self.jurusan = jurusan
+
+    def tampilkan_info(self):
+        print("\nNama     : ", self.nama)
+        print("NIM      : ", self.nim)
+        print("Jurusan  : ", self.jurusan.nama_jurusan)
+        
+""" Kode diatas adalah kelas Mahasiswa dengan atribut nama, nim, dan jurusan.
+    *. Pada kelas tersebut init(self, nama, nim, jurusan) digunakan untuk menginisialisasi 
+       atribut nama, nim, dan jurusan. 
+    *. Pada kode diatas juga terdapat fungsi tampilkan_info(self) untuk menampilkan informasi 
+       nama, nim, dan jurusan mahasiswa yang ditambahkan. """
+
+########################################################### Kelas Jurusan ###########################################################
+class Jurusan:
+    def __init__(self, nama_jurusan):
+        self.nama_jurusan = nama_jurusan
+        self.daftar_mahasiswa = []
+
+    def tambah_mahasiswa(self, mahasiswa):
+        self.daftar_mahasiswa.append(mahasiswa)
+
+    def tampilkan_daftar_mahasiswa(self):
+        print("========================================================================================================================") 
+        print("\nDaftar Mahasiswa di Jurusan", self.nama_jurusan)
+        print("---------------------------------------------")
+        for mahasiswa in self.daftar_mahasiswa:
+            mahasiswa.tampilkan_info()
+            
+""" Kode diatas adalah kelas Jurusan dengan atribut nama_jurusan.
+    *. Pada kelas tersebut def __init__(self, nama_jurusan) digunakan untuk menginisialisasi 
+       atribut nama_jurusan. 
+    *. Kode  self.daftar_mahasiswa = [] untuk menambahkan daftar objek mahasiswa.
+    *. Kode def tambah_mahasiswa(self, mahasiswa) digunakan untuk menambahkan objek mahasiswa
+       ke dalam objek daftar_mahasiswa.
+    *. Kode def tampilkan_daftar_mahasiswa(self) berfungsi untuk menambahkan daftar mahasiswa
+       yang terdaftar dalam jurusan yang ditambahkan. """
+
+########################################################## Kelas Unirversitas ##########################################################
+class Universitas:
+    def __init__(self, nama_universitas):
+        self.nama_universitas = nama_universitas
+        self.daftar_jurusan = []
+
+    def tambah_jurusan(self, jurusan):
+        self.daftar_jurusan.append(jurusan)
+
+    def tampilkan_daftar_jurusan(self):
+        print("========================================================================================================================")
+        print("Daftar Jurusan di Universitas", self.nama_universitas)
+        print("---------------------------------------------")
+        for jurusan in self.daftar_jurusan:
+            print(jurusan.nama_jurusan)
+            
+""" Kode diatas adalah kelas Universitas dengan atribut nama_universitas.
+    *. Pada kelas tersebut def __init__(self, nama_universitas) berfungsi untuk menginisialisasi 
+       atribut nama_universitas. 
+    *. Kode  self.daftar_jurusan = [] untuk menambahkan daftar objek jurusan.
+    *. Pada kode diatas juga terdapat fungsi tambah_jurusan(self, jurusan) menambahkan 
+       objek Jurusan ke dalam objek daftar_jurusan.
+    *. Kode def tampilkan_daftar_jurusan(self) berfungsi untuk menampilkan daftar jurusan
+       yang ada di universitas. """
+
+##########################################################################################################################################
+universitas_xyz = Universitas("XYZ University")
+
+""" Kode diatas berfungsi untuk membuat objelk Universitas dengan nama XYZ University """
+       
+##########################################################################################################################################
+jurusan_ti = Jurusan("Teknik Informatika")
+jurusan_ts = Jurusan("Teknik Sipil")
+jurusan_tm = Jurusan("Teknik Mesin")
+jurusan_te = Jurusan("Teknik Elektro")
+jurusan_arsi = Jurusan("Arsitektur")
+jurusan_si = Jurusan("Sistem Informasi")
+
+universitas_xyz.tambah_jurusan(jurusan_ti)
+universitas_xyz.tambah_jurusan(jurusan_ts)
+universitas_xyz.tambah_jurusan(jurusan_tm)
+universitas_xyz.tambah_jurusan(jurusan_te)
+universitas_xyz.tambah_jurusan(jurusan_arsi)
+universitas_xyz.tambah_jurusan(jurusan_si)
+
+""" Kode diatas berfungsi untuk membuat objek Jurusan dengan nama Teknik Informatika, Teknik Sipil, Teknik Mesin,
+    Teknik Elektro, Arsitektur, dan Sistem Informasi. Kemudian menambahkan semuanya ke daftar jurusan yang ada di XYZ University"""
+       
+##########################################################################################################################################
+mahasiswa1 = Mahasiswa("Sinta Ezra Wati Gulo", "G1A022040", jurusan_ti)
+mahasiswa2 = Mahasiswa("Damianus Christopher Samosir", "G1A022028", jurusan_ti)
+mahasiswa3 = Mahasiswa("Torang Four Yones M", "G1A022052", jurusan_ti)
+jurusan_ti.tambah_mahasiswa(mahasiswa1)
+jurusan_ti.tambah_mahasiswa(mahasiswa2)
+jurusan_ti.tambah_mahasiswa(mahasiswa3)
+
+mahasiswa1 = Mahasiswa("Fery Saputra Angkat", "G1B022090", jurusan_ts)
+mahasiswa2 = Mahasiswa("Dimas Arjuna", "G1B022044", jurusan_ts)
+mahasiswa3 = Mahasiswa("Eykelninta Ginting", "G1B022038", jurusan_ts)
+jurusan_ts.tambah_mahasiswa(mahasiswa1)
+jurusan_ts.tambah_mahasiswa(mahasiswa2)
+jurusan_ts.tambah_mahasiswa(mahasiswa3)
+
+mahasiswa1 = Mahasiswa("Riana Hutasoit", "G1C022015", jurusan_tm)
+mahasiswa2 = Mahasiswa("Indra Silaban", "G1C022082", jurusan_tm)
+mahasiswa3 = Mahasiswa("Jedi Dia", "G1C022048", jurusan_tm)
+jurusan_tm.tambah_mahasiswa(mahasiswa1)
+jurusan_tm.tambah_mahasiswa(mahasiswa2)
+jurusan_tm.tambah_mahasiswa(mahasiswa3)
+
+mahasiswa1 = Mahasiswa("Raden Bako", "G1D022027", jurusan_te)
+mahasiswa2 = Mahasiswa("Anggi Simarmata", "G1D022038", jurusan_te)
+mahasiswa3 = Mahasiswa("Cadila Natalia", "G1C022007", jurusan_te)
+jurusan_te.tambah_mahasiswa(mahasiswa1)
+jurusan_te.tambah_mahasiswa(mahasiswa2)
+jurusan_te.tambah_mahasiswa(mahasiswa3)
+
+mahasiswa1 = Mahasiswa("Almer Farrel", "G1E022045", jurusan_arsi)
+mahasiswa2 = Mahasiswa("Kevin Saputra", "G1E022022", jurusan_arsi)
+jurusan_arsi.tambah_mahasiswa(mahasiswa1)
+jurusan_arsi.tambah_mahasiswa(mahasiswa2)
+
+mahasiswa1 = Mahasiswa("Santa Fatresia", "G1F022074", jurusan_si)
+mahasiswa2 = Mahasiswa("Glori Pesta", "G1F022018", jurusan_si)
+mahasiswa3 = Mahasiswa("Rio Telanggen", "G1F022040", jurusan_si)
+jurusan_si.tambah_mahasiswa(mahasiswa1)
+jurusan_si.tambah_mahasiswa(mahasiswa2)
+jurusan_si.tambah_mahasiswa(mahasiswa3)
+
+""" Kode diatas berfungsi untuk membuat objek Mahasiswa dengan nama-nama mahasiswa yang ada di tiap jurusan dan memasukkannya
+    ke dalam jurusan-jurusan yang ada di XYZ University. """
+       
+##########################################################################################################################################
+universitas_xyz.tampilkan_daftar_jurusan()
+
+jurusan_ti.tampilkan_daftar_mahasiswa()
+jurusan_ts.tampilkan_daftar_mahasiswa()
+jurusan_tm.tampilkan_daftar_mahasiswa()
+jurusan_te.tampilkan_daftar_mahasiswa()
+jurusan_arsi.tampilkan_daftar_mahasiswa()
+jurusan_si.tampilkan_daftar_mahasiswa()
+
+""" Kode diatas berfungsi untuk menampilkan daftar jurusan yang ada di XYZ University dan
+    menampilkan nama-nama mahasiswa yang ada di tiap jurusan. """
